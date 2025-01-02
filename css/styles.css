@@ -3632,12 +3632,40 @@ td:last-child {
 }
 
 .s-intro__content-title {
-	font-size: clamp(4rem, 10vw, 10.4rem);
-	line-height  : 1;
-	margin-top   : 0;
-	margin-bottom: var(--vspace-1_25);
-	color        : var(--color-3);
+    font-size: clamp(3rem, 5vw, 8rem); /* Dynamically adjust font size */
+    line-height: 1; /* Maintain readability */
+    margin-top: 0;
+    margin-bottom: var(--vspace-1_25);
+    color: var(--color-3);
+    word-wrap: break-word; /* Ensure long words break if necessary */
 }
+
+
+
+/* Additional responsive adjustments for smaller screens */
+@media screen and (max-width: 900px) {
+    .s-intro__content-title {
+        font-size: clamp(2.5rem, 8vw, 4.5rem); /* Slightly smaller on medium screens */
+        line-height: 1;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .s-intro__content-title {
+        font-size: clamp(2.5rem, 6vw, 3rem); /* Smaller font for mobile screens */
+        line-height: 1;
+        margin-bottom: var(--vspace-1); /* Adjust spacing for smaller screens */
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .s-intro__content-title {
+        font-size: clamp(2rem, 5vw, 2.5rem); /* Further adjustment for very small screens */
+        word-wrap: break-word;
+
+    }
+}
+
 
 .s-intro__content-media {
 	grid-column : 12/-1;
