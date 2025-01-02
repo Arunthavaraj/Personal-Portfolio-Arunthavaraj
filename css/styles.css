@@ -3632,7 +3632,7 @@ td:last-child {
 }
 
 .s-intro__content-title {
-	font-size    : clamp(4rem, 6vw, 10rem);
+	font-size: clamp(4rem, 10vw, 10.4rem);
 	line-height  : 1;
 	margin-top   : 0;
 	margin-bottom: var(--vspace-1_25);
@@ -4743,14 +4743,19 @@ td:last-child {
 }
 
 
+
+
+
+
 .cert-grid {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	gap: var(--vspace-1);
 	margin-top: var(--vspace-2);
-}
-
-.cert-card {
+  }
+  
+  /* Cert card design */
+  .cert-card {
 	background: var(--color-white);
 	border-radius: var(--border-radius);
 	padding: var(--vspace-1);
@@ -4759,93 +4764,116 @@ td:last-child {
 	display: flex;
 	flex-direction: column;
 	gap: var(--vspace-0_5);
-}
-
-.cert-card:hover {
+	height: 100%; /* Full height */
+  }
+  
+  .cert-card:hover {
 	transform: translateY(-5px);
 	box-shadow: var(--shadow-2);
-}
-
-.cert-card__logo {
-	width: 64px;
-	height: 64px;
-	margin-bottom: var(--vspace-0_5);
-}
-
-.cert-card__logo img {
-	width: 100%;
-	height: 100%;
-	object-fit: contain;
-}
-
-.cert-card__title {
+  }
+  
+  /* Title style for certifications */
+  .cert-card__title {
 	font-size: var(--text-md);
 	margin-bottom: var(--vspace-0_25);
 	color: var(--color-text-dark);
-}
-
-.cert-card__meta {
+	margin-top: 0; /* Ensure no margin is added on top */
+  }
+  
+  /* Meta section for additional information */
+  .cert-card__meta {
 	display: flex;
 	flex-direction: column;
 	gap: 0.5rem;
 	font-size: var(--text-sm);
 	color: var(--color-text-light);
-}
-
-.cert-card__footer {
+  }
+  
+  /* Footer with the verification link */
+  .cert-card__footer {
 	margin-top: auto;
 	padding-top: var(--vspace-0_5);
-}
-
-/* Responsive adjustments */
-@media screen and (max-width: 1200px) {
+  }
+  
+  /* Ensure PDFs inside cert cards are in a uniform rectangular container */
+  .cert-card__preview {
+	width: 100%;
+	height: 0;
+	padding-bottom: 70%; /* Aspect ratio for A4 format (8.5:11) */
+	position: relative;
+	overflow: hidden;
+	margin-bottom: var(--vspace-1); /* Add margin to create consistent space */
+  }
+  
+  .cert-card__preview canvas {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+  }
+  
+  /* Responsive adjustments */
+  @media screen and (max-width: 1200px) {
 	.cert-grid {
-		grid-template-columns: repeat(2, 1fr);
+	  grid-template-columns: repeat(2, 1fr);
 	}
-}
-
-@media screen and (max-width: 800px) {
+  }
+  
+  @media screen and (max-width: 800px) {
 	.cert-grid {
-		grid-template-columns: 1fr;
+	  grid-template-columns: 1fr;
 	}
-}
+  }
+  
 
-.resume-preview-container {
+
+
+
+
+
+
+
+
+  .resume-preview-container {
 	display: flex;
 	justify-content: center;
 	gap: 2rem;
 	margin: 2rem 0;
-}
-
-.resume-page {
+  }
+  
+  .resume-page {
 	width: 45%;
 	aspect-ratio: 8.5/11;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 	background: #fff;
 	border-radius: 4px;
 	overflow: hidden;
-}
-
-.resume-iframe {
+  }
+  
+  .resume-pdf {
 	width: 100%;
 	height: 100%;
-	border: none;
-}
-
-.resume-preview__actions {
+	overflow-y: auto;
+  }
+  
+  .resume-preview__actions {
 	margin-top: 2rem;
-}
-
-@media screen and (max-width: 768px) {
+  }
+  
+  @media screen and (max-width: 768px) {
 	.resume-preview-container {
-		flex-direction: column;
-		align-items: center;
+	  flex-direction: column;
+	  align-items: center;
 	}
-
+  
 	.resume-page {
-		width: 90%;
+	  width: 90%;
 	}
-}
+  }
+  
+
+  
 
 .contact-block {
     padding: 20px;
